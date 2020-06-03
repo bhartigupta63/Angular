@@ -1,0 +1,27 @@
+
+
+  <span><a routerLink='/main-page'>Menu</a></span><br>
+
+<div class="container-sm">
+<h1>Login</h1>
+<form (ngSubmit)='logIn()' [formGroup]='loginForm'>
+  <div class="form-group">
+    <label>User Name:</label><br>
+    <input   formControlName="username" type="text" class="form-control">
+    <span class="danger"*ngIf="loginForm.get('username').touched && loginForm.get('username').invalid"  >
+       User Name is required
+       </span>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <label>Password:</label><br>
+    <input formControlName="password" type="password" class="form-control">
+     <span class="danger" *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid"  >
+        Invalid Password
+      </span>
+  </div><br>
+
+  <button [disabled]='loginForm.invalid' class="btn btn-primary" type="submit">Login</button>
+</form>
+</div>

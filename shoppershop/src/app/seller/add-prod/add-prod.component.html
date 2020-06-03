@@ -1,0 +1,89 @@
+<button class="btn btn-primary" routerLink="../seller-dashboard" routerLinkactive = "active"> Dashboard</button><br><br>
+
+<div class="container-sm">
+   <h1>Enter the Details to Add the Product</h1>
+
+   <form (ngSubmit)='get_Product()' [formGroup]='addProductForm'>
+
+      <div class="form-group row">
+         <label>Product Name:</label> <br>
+         <input formControlName="name" type="text" class="form-control " placeholder="Product Name">
+         <span class=" alert-danger" *ngIf="addProductForm.get('name').touched && addProductForm.get('name').invalid">
+            Product Name is required
+         </span> 
+      </div> <br>
+
+
+         <div class="form-group row">
+            <label>Description:</label> <br>
+            <textarea formControlName="description" type="text" class="form-control "> </textarea>
+            <span class=" alert-danger"
+               *ngIf="addProductForm.get('description').touched && addProductForm.get('description').invalid">
+               Description is required
+            </span> </div>
+         <br>
+      
+
+
+      <div class="form-group row">
+         <label>MRP:</label><br>
+         <input formControlName="mrp" type="number" min="0" class="form-control " placeholder="MRP">
+         <span class=" alert-danger" *ngIf="addProductForm.get('mrp').touched && addProductForm.get('mrp').invalid">
+            MRP is required
+         </span>
+      </div>
+      <br>
+
+
+      <div class="form-group row">
+        <label>Sale Price:</label><br>
+        <input formControlName="salePrice" type="number" min="0" class="form-control " placeholder="Sale Price">
+        <span class=" alert-danger" *ngIf="addProductForm.get('salePrice').touched && addProductForm.get('salePrice').invalid">
+           Sale Price is required
+        </span>
+     </div>
+     <br>
+
+
+
+     <div class="form-group row">
+        <label>Quantity:</label><br>
+        <input formControlName="quantity" type="number" min = "1" class="form-control " placeholder=" Quantity">
+        <span class=" alert-danger" *ngIf="addProductForm.get('quantity').touched && addProductForm.get('quantity').invalid">
+            Quantity is required
+        </span>
+     </div>
+     <br>
+
+
+     <div class="form-group row">
+        <label>On Sale:</label><br>
+        <select formControlName="onSale"  class="form-control " placeholder="On Sale">
+        <option [ngValue]= "false">No</option>
+        
+                <option  [ngValue]="true">Yes</option>
+                </select>
+        <span class=" alert-danger" *ngIf="addProductForm.get('onSale').touched && addProductForm.get('onSale').invalid">
+           Required
+        </span>
+     </div>
+     <br>
+
+     <div class="form-group row">
+        <label>Category:</label><br>
+        <select formControlName="category" class="form-control "  placeholder="category">
+        <option  *ngFor="let category of categoryList" [value]="category._id">{{category.name}}</option>
+        </select>
+        <span class=" alert-danger" *ngIf="addProductForm.get('category').touched && addProductForm.get('category').invalid">
+            Category is required
+        </span>
+     </div>
+     <br>
+
+         
+
+      <button [disabled]='addProductForm.invalid' class="btn btn-primary" type="submit"> Add </button>
+
+      <button class="btn btn-default" type="reset"> Clear </button>
+   </form>
+</div>

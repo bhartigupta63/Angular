@@ -1,0 +1,22 @@
+  
+
+    
+
+<span><a routerLink="../cart">View Cart</a></span>&nbsp;
+<span><a routerLink="../buyer-dashboard">Dashboard</a></span>
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let i of item">
+    <div class="card text-center">
+      <div class="card-body mr-3">
+        <a routerLink="/product-detail" (click)='addTo(i)' class="card-title">{{i.name}}</a>
+        <p *ngIf="i.onSale===false" class="card-text">MRP: {{i.mrp}}</p>
+        <p *ngIf="i.onSale===true" class="card-text">MRP:<s> {{i.mrp}}</s></p>
+        <p>Quantity: {{i.quantity}}</p>
+
+      </div>
+      <div *ngIf="i.onSale===true" class="card-footer">
+        Sale Price: {{i.salePrice}}
+      </div>
+    </div>
+  </div>
+</div>

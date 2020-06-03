@@ -1,0 +1,32 @@
+<button class="btn btn-primary" routerLink="../seller-dashboard" routerLinkactive = "active"> Dashboard</button><br><br>
+<h1>Products To Edit/Delete </h1><br> <br>
+
+<div>
+    <table>
+        <thead>
+            <th>Index</th>
+            <th>Product Name</th>
+            <th>Product Id</th>
+            <th>Quantity</th>
+            <th>MRP</th>
+            <th>Sale Price</th>
+            <th>Sale Status</th>
+            <th colspan="2">Action</th>
+        </thead>
+        <tbody >
+            <tr *ngFor="let list of viewproductlist; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{list.name}}</td>
+                <td>{{list._id}}</td>
+                <td>{{list.quantity}}</td>
+                <td>{{list.mrp}}</td>
+                <td>{{list.salePrice}}</td>
+                <td>{{list.onSale}}</td>
+                <td>
+                    <button class = "btn-danger" routerLink="../edit-prod/{{list._id}}" routerLinkActive="active">Edit</button>
+                    <button class="btn-danger" (click)="onDelete(list._id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>  

@@ -1,0 +1,12 @@
+<nav style="margin: 5px;">
+  <div
+    [ngStyle]="{'color': 'wheat', 'font-size': '25px', 'font-weight': 'bold', 'background' : 'black', 'padding' :'40px','text-align': 'center'}">
+    WELCOME TO SHOPPER'S SHOP
+    <button [ngStyle]="{'float':'left','color': 'wheat' }" class="btn btn-default" routerLink="/main-page"
+      routerLinkActive="active">Menu</button>
+    <button [ngStyle]="{'float':'right' ,'color': 'wheat'}" class="btn btn-default" routerLink="/login"
+      routerLinkActive="active">Login</button>
+    <button [ngStyle]="{'float':'right','color': 'wheat'  }" class="btn btn-default" routerLink="/signup"
+      routerLinkActive="active">Signup</button>
+  </div>
+</nav>

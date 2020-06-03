@@ -1,0 +1,58 @@
+<span><a routerLink='/main-page'> Menu </a></span><br>
+<div class="container-sm">
+   <h1>Sign Up</h1>
+
+   <form (ngSubmit)='signup()' [formGroup]='signupForm'>
+
+      <div class="form-group row">
+         <label>Name:</label> <br>
+         <input formControlName="displayName" type="text" class="form-control ">
+         <span class=" alert-danger" *ngIf="signupForm.get('displayName').touched && signupForm.get('displayName').invalid">
+            Name is required
+         </span> 
+      </div> <br>
+
+
+         <div class="form-group row">
+            <label>Username:</label> <br>
+            <input formControlName="userName" type="text" class="form-control ">
+            <span class=" alert-danger"
+               *ngIf="signupForm.get('userName').touched && signupForm.get('userName').invalid">
+               User Name is required
+            </span> </div>
+         <br>
+      
+
+
+      <div class="form-group row">
+         <label>Password:</label><br>
+         <input formControlName="password" type="password" class="form-control ">
+         <span class=" alert-danger" *ngIf="signupForm.get('password').touched && signupForm.get('password').invalid">
+            Password is required
+         </span>
+      </div>
+      <br>
+
+
+      <div class="form-group">
+         <label>Role:</label><br>
+
+         <div class="form-check form-check-inline">
+            <input formControlName="role" type="radio" value="admin">
+            <label>Admin</label>
+         </div>
+
+         <div class="form-check form-check-inline">
+            <input formControlName="role" type="radio" value="user">
+            <label>User</label>
+         </div>
+
+         <span class=" alert-danger" *ngIf="signupForm.get('role').touched && signupForm.get('role').invalid">
+            Role is required
+         </span>
+      </div>
+      <br>
+
+      <button [disabled]='signupForm.invalid' class="btn btn-primary" type="submit">Signup</button>
+   </form>
+</div>

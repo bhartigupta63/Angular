@@ -1,0 +1,15 @@
+<a routerLink="../start-shop">Back</a>
+<p>Name:{{item.name}}</p>
+<p>Description:{{item.description}}</p>
+<p *ngIf="item.onSale===false" >MRP: {{item.mrp}}</p>
+<p *ngIf="item.onSale===true" >MRP:<s> {{item.mrp}}</s></p>
+<p *ngIf="item.onSale===true">Sale Price:{{item.salePrice}}</p>
+<label>Quantity:</label>
+<select (change)='selectChangeHandler($event)'>
+  <option value="none" selected disabled hidden>
+    Select the Quantity
+</option>
+  <option value=1 >1</option>
+  <option value=2 >2</option>
+</select><br><br>
+<button class="btn btn-primary" (click)="addToCart()">Add To Cart</button>

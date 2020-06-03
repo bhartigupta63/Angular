@@ -1,0 +1,30 @@
+
+<button class="btn btn-primary" routerLink="../buyer-dashboard" routerLinkactive = "active"> Dashboard</button><br><br>
+<a routerLink='../start-shop'>Start Shopping</a>
+<div class="container">
+  <h2 class="mt-4 text-center">Product Details</h2>
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th>SNo.</th>
+        <th>Product Name</th>
+
+        <th>Quantity</th>
+        <th>MRP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items ;let i = index">
+        <td>{{i+1}}</td>
+        <td>{{item.product.name}}</td>
+        <td>{{item.quantity}}</td>
+        <td *ngIf="item.product.onSale===false">{{item.product.mrp*item.quantity | currency:'INR'}}</td>
+        <td *ngIf="item.product.onSale===true">{{item.product.salePrice*item.quantity | currency:'INR'}}</td>
+      </tr>
+    </tbody>
+  </table><br>
+  <label *ngIf="total_price!=0" >Total Price:</label>
+<p *ngIf="total_price!=0">{{total_price | currency:'INR'}}</p>
+  <button *ngIf="total_price!=0" class="btn btn-primary" (click)="delete()">Purchase</button>
+<p *ngIf="total_price===0">No Items!!</p>
+</div>

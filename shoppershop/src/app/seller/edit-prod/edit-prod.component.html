@@ -1,0 +1,49 @@
+
+<h4>Edit Product Details</h4>
+<div class="container">
+    <form [formGroup]="EditProductForm" (ngSubmit)="AddProduct(item._id)" >
+        <div class="form-group">
+            <label >Product Name:</label>
+            <input type="text" [value]="item?.name"  class="form-control" disabled>
+           
+        </div>
+        
+        <div class="form-group">
+            <label >Category:</label>
+            <input  [value]="item?.category?.name"  type ="text"  class="form-control" disabled>
+                
+        </div>
+        
+        <div class="form-group">
+            <label >MRP</label>
+            <input type="number" [value]="item?.mrp" class="form-control" disabled>
+            
+        </div>
+        <div class="form-group">
+            <label for="salePrice">Sale Price</label>
+            <input type="number"   formControlName="salePrice"  class="form-control">
+            <div class="alert alert-danger" *ngIf="EditProductForm.get('salePrice').hasError('required')&& EditProductForm.get('salePrice').touched">
+                *Sale Price required
+             </div>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number"  formControlName="quantity" class="form-control">
+            <div class="alert alert-danger" *ngIf="EditProductForm.get('quantity').hasError('required')&& EditProductForm.get('quantity').touched">
+                *Quantity required
+             </div>
+        </div>
+        <div class="form-group">
+            <label for="onSale">On sale</label>
+            <select formControlName="onSale" class="form-control" >
+                <option [ngValue]= "false">No</option>
+                <option  [ngValue]="true">Yes</option>
+            </select>
+            <div class="alert alert-danger" *ngIf="EditProductForm.get('onSale').hasError('required')&& EditProductForm.get('onSale').touched">
+                *On Sale required
+             </div>
+        </div>
+        <button [disabled]="EditProductForm.invalid" class="btn btn-primary"  type="submit">Add</button>
+        <button class="btn btn-default" type="reset">Clear</button>
+    </form>
+    </div>

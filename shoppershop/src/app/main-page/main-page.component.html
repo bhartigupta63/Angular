@@ -1,0 +1,21 @@
+
+
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let i of item">
+    <div class="card text-center">
+     <!-- <div class="card-header">
+        <h3 class="mb-0">{{i.name}}</h3>
+      </div> -->
+      <div class="card-body mr-3">
+        <h5 class="card-title">{{i.name}}</h5>
+        <p *ngIf="i.onSale===false" class="card-text">MRP: {{i.mrp}}</p>
+        <p *ngIf="i.onSale===true" class="card-text">MRP:<s> {{i.mrp}}</s></p>
+
+      </div>
+      <div *ngIf="i.onSale===true" class="card-footer">
+        Sale Price: {{i.salePrice}}
+      </div>
+    </div>
+  </div>
+</div>
+<footer></footer>

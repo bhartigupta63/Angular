@@ -1,0 +1,17 @@
+
+ h1 {
+    background-color:black;
+    padding: 60px;
+    color: wheat;
+    text-align: center;
+    font-size: 40px;
+    
+  }  
+.column {
+    float: right;
+    width: 45%;
+    padding: 10px;
+    height: 100px;
+}
+
+
